@@ -1,0 +1,16 @@
+  <nav>
+    <div class="nav-wrapper orange darken-1">
+      <a href="#" class="brand-logo"><%= link_to "LOGO", root_path%></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to "home", root_path %> </li>
+        <li><%= link_to "register", new_user_path %></li>
+        <li><%= link_to "log in", login_path %></li>
+
+       
+        
+      </ul>
+    </div>
+  </nav>
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>

@@ -1,0 +1,27 @@
+	<form class = "col s6">
+<div class="row col s6">
+    <%= form_for(@user) do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    </div>
+
+<div class="row col s6">
+	<%= f.label :email %>
+	<%= f.email_field :email %>
+	</div>
+</div>
+<div class="row col s6">
+	<%= f.label :password %>
+	<%= f.password_field :password %> 
+	</div>
+
+	<%= f.label :password_confirmation, "Confirmation" %>
+	<%= f.password_field :password_confirmation %>
+        
+	<%= f.submit 'Create my account', class: "btn waves-effect waves-light orange darker-1" %>
+
+	</div>
+	<% end %>
+		</form>
+
