@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  get 'signup' => 'users#new'  
+  get 'signup' => 'users#new'
+
+  get 'faq' => 'static_pages#faq'  #route for test faq page
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
