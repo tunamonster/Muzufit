@@ -1,2 +1,0 @@
-module SaltHelper
-end

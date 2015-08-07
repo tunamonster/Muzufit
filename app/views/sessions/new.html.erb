@@ -1,16 +1,12 @@
+    <%= form_for(:session, url: login_path) do |f| %>
+     	<div class="row">
+		<div class="row col s6">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
 
-				<div class="row">
-				<div class="row col s6">
-						<%= form_for(:session, url: login_path) do |f| %>
-						<%= f.label :email %>
-						<%= f.email_field :email %>
-
-	<%= f.label :password %>
-	<%= f.password_field :password %>
-	</div>
-	</div>
-	<%= f.submit 'Log in', class: "btn waves-effect waves-light orange darker-1" %>
-
-	
-	<% end %>
-
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+  </div>
+</div>
+      <%= f.submit "Log in", class: "btn btn-primary orange darker-1" %>
+    <% end %>

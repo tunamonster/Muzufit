@@ -10,8 +10,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   	assert_template 'sessions/new'
   	post login_path, session: {email: @user.email, password: ""}
   	assert_template 'sessions/new'
-  	assert_not flash.empty? #doesn't actually show flash, might be b/c of materialize
-  	get root_path
+  	assert_not flash.empty? #shows 2 identical flash messages under each other, probably defined flash twice in header view
+    get root_url
   	assert flash.empty? 
   end 
   # test "the truth" do

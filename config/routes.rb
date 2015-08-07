@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
   get 'sessions/new'
 
-  get 'candy1' => 'salt#candy1'
-  get 'candy2' => 'salt#candy2'
   root 'static_pages#home'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   get 'signup' => 'users#new'
-
-  get 'faq' => 'static_pages#faq'  #route for test faq page
+  get 'faq' => 'static_pages#faq'  
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
