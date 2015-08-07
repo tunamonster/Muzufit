@@ -9,14 +9,12 @@ class UsersController < ApplicationController
 	end
 	
 
- 	def create
+  def create
     @user = User.new(user_params)
     if @user.save
-      # Handle a successful save.
+      redirect_to @user
     else
-    flash[:danger] = 'Invalid email/password combination' 
-    render 'new'
-
+      render 'new'
     end
   end
 

@@ -12,7 +12,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   	assert_template 'sessions/new'
   	assert_not flash.empty? #doesn't actually show flash, might be b/c of materialize
   	get root_path
-  	assert_not flash.empty? #fails if assert ... , idk why
+  	assert flash.empty? 
   end 
   # test "the truth" do
   #   assert true
