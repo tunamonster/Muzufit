@@ -6,7 +6,12 @@
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
+
+    <input type="checkbox" name="session[remember_me]" id="session_remember_me" /> 
+    <label for="session_remember_me">Remember me on this computer</label>  <!-- rewrite checkbox in ruby -->
+
+    </div>
   </div>
-</div>
+
       <%= f.submit "Log in", class: "btn btn-primary orange darker-1" %>
     <% end %>
