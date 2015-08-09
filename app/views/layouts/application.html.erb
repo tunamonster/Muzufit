@@ -7,18 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render 'layouts/sidenav' %>
+  <header><%= render 'layouts/header' %></header>
 
- <%= render 'layouts/header' %>
- 	<%= render 'layouts/sidenav' %>  
-<div class="row">
 
-<div class="col s12 offset-s2">
+  <%= yield %>
 
-<%= yield %>
+  <%= debug(params) if Rails.env.development? %>
 
- <%= debug(params) if Rails.env.development? %>
- <%= render 'layouts/footer' %>
-</div>
-</div>
+
+
 </body>
+<footer class="page-footer orange darken-1"><%= render 'layouts/footer' %></footer>
 </html>

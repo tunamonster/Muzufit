@@ -1,6 +1,6 @@
 <% if logged_in? %>
- <!-- sidenav -->      
-       
+ <!-- sidenav -->
+
         <ul id="slide-out" class="side-nav fixed">
         	<li><%= link_to "my profile", user_path(current_user) %></li>
         	<% if current_user.company? %>
@@ -10,5 +10,5 @@
             <% end %>
             <li><%= link_to "cust+comp page", '#' %></li>
           </ul>
-        
+
 <% end %>
