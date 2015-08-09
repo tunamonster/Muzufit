@@ -6,9 +6,10 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<%= render 'layouts/header' %>
 <body>
   <%= render 'layouts/sidenav' %>
-  <header><%= render 'layouts/header' %></header>
+
 
 
   <%= yield %>
@@ -18,5 +19,5 @@
 
 
 </body>
-<footer class="page-footer orange darken-1"><%= render 'layouts/footer' %></footer>
+<%= render 'layouts/footer' %>
 </html>
