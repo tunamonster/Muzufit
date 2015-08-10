@@ -1,0 +1,12 @@
+<% unless current_user == @user %>
+	<div id="subscription_form" %>
+
+		<% if current_user.subscriptions(post_id: @cposting.id).present? %>
+			
+			<%= render 'unsubscribe' %>
+		<% else %>
+			
+			<%= render 'subscribe' %>
+		<% end %>
+	</div>
+<% end %>

@@ -19,3 +19,7 @@ User.create!(name: "david",
 			company: false
 			)
 
+Cposting.create!(content: "RAILING RAILS OFF OF RAILS",
+				 user_id: 1,
+				 spots: 3
+	)

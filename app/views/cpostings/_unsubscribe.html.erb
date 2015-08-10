@@ -1,0 +1,3 @@
+<%= form_for(current_user.subscriptions.destroy(post_id: @cposting.id)) do |f| %>
+<%= f.submit "Unsubscribe", class: "btn waves-effect waves-light orange darker-1" %>
+<% end %>

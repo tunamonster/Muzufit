@@ -1,0 +1,18 @@
+<%= form_for(@cposting) do |f| %>
+
+    <div class="row">
+	<div class="row col s6">
+		<%= f.label :content %>
+		<%= f.text_field :content %>
+
+		<%= f.label :spots %>
+		<%= f.number_field :spots, min:1, max:10 %> only between 1 and 10
+also add date, location and confirmation
+
+	</div>
+	</div>
+   <%= f.submit 'Create posting', class: "btn waves-effect waves-light orange darker-1" %>
+<% end %>
+
+
+        

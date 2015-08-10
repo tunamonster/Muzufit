@@ -1,0 +1,3 @@
+<%= form_for(current_user.subscriptions.build(post_id: @cposting.id)) do |f| %>
+<%= f.submit "Attend this class!", class: "btn waves-effect waves-light orange darker-1" %>
+<% end %>

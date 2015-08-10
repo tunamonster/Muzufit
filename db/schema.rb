@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150807160512) do
+ActiveRecord::Schema.define(version: 20150810081622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cpostings", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "spots"
+  end
+
+  add_index "cpostings", ["user_id", "created_at"], name: "index_cpostings_on_user_id_and_created_at", using: :btree
+  add_index "cpostings", ["user_id"], name: "index_cpostings_on_user_id", using: :btree
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "subscriber_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "subscriptions", ["post_id", "subscriber_id"], name: "index_subscriptions_on_post_id_and_subscriber_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                      null: false
@@ -26,4 +46,5 @@ ActiveRecord::Schema.define(version: 20150807160512) do
     t.string   "remember_digest"
   end
 
+  add_foreign_key "cpostings", "users"
 end

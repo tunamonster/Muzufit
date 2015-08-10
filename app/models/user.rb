@@ -1,4 +1,12 @@
 class User < ActiveRecord::Base
+  has_many :cpostings,
+   :foreign_key => :user_id,
+   dependent: :destroy 
+
+   has_many :subscriptions, 
+            foreign_key: "subscriber_id", 
+            dependent: :destroy
+
 	  attr_accessor :remember_token
   before_save { self.email = email.downcase }
 
@@ -22,6 +30,8 @@ class User < ActiveRecord::Base
   	SecureRandom.urlsafe_base64
   end
 
+
+
   def remember
   	self.remember_token = User.new_token
   	update_attribute(:remember_digest, User.digest(remember_token))
@@ -35,4 +45,6 @@ class User < ActiveRecord::Base
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+
 end

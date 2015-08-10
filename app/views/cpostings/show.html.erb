@@ -1,0 +1,6 @@
+<li id = "cposting-<%= @cposting.id %>">
+<h1><%= link_to @cposting.user.name, @cposting.user %></h1>
+<span class = "spots"><%= @cposting.spots %> spots left to go </span>
+<span class = "content"><%= @cposting.content %> </span>
+<%= render 'subscribe_form' %>
+</li>
