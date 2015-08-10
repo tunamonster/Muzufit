@@ -1,14 +1,24 @@
 class SubscriptionsController < ApplicationController
-
-	def create
-		@subscription = Subscription.new
-		if @subscription.save 
-			flash[:success] = ".						signed up!"
-		else
-			flash[:error] = ".						you're already signed up for this class!"
-		end
-		redirect_to root_url
+	def show
+		@subscription = Subscription.find(params[:id])
 	end
 
+	def index
+		@subscriptions = Subscription.where(subscriber_id: current_user.id)
 
+	end
+
+	def create
+		@posting = Cposting.find(params[:post_id])	
+		current_user.subscriptions.create(post_id: @posting.id)
+		flash[:success] = "Subscribed!"
+		redirect_to subscriptions_path
+	end
+
+	def destroy 		
+		@subscription = Subscription.find(params[:id])	
+		@subscription.destroy
+		flash[:success] = "Unsubscribed succesfully" #from cposting.title
+		redirect_to subscriptions_path
+	end
 end

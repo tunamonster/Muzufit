@@ -1,0 +1,9 @@
+<h1> My subscriptions </h1>
+<ul class = "subscriptions">
+<% @subscriptions.each do |s| %>
+<% c = Cposting.find_by(id: s.post_id) %>
+<li>
+<%= link_to c.content, c  %> 
+</li>
+<% end %>
+</ul>
