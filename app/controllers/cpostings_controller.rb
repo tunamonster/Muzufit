@@ -1,10 +1,11 @@
 class CpostingsController < ApplicationController
 	def show
 		@cposting = Cposting.find(params[:id])
+		@spots_left = @cposting.spots_left
 	end
 
 	def index
-		@cpostings = Cposting.all 
+		@cpostings = Cposting.paginate(page: params[:page], :per_page => 5)
 	end
 
 	def new
@@ -21,6 +22,7 @@ class CpostingsController < ApplicationController
 		flash.now[:error] = "error error error"
 		end
 	end
+
 
 private 
 

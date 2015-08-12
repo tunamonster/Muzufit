@@ -15,3 +15,8 @@ customer:
   email: customer@okmail.com 
   password_digest: <%= User.digest('password') %>
 
+customer2:
+  name: Filler Filly
+  email: customer2@okmail.com 
+  password_digest: <%= User.digest('password') %>
+

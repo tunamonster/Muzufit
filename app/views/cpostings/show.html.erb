@@ -1,6 +1,21 @@
+
 <li id = "cposting-<%= @cposting.id %>">
+
 <h1><%= link_to @cposting.user.name, @cposting.user %></h1>
-<span class = "spots"><%= @cposting.spots %> spots left to go </span>
+
+<% unless @cposting.full_class? %>
+<span class = "spots"><%= pluralize(@spots_left, 'spot') %> left to go </span>
+<% end %>
+
 <span class = "content"><%= @cposting.content %> </span>
+
+<% if @cposting.full_class? && !current_user.subscribed?(@cposting) %>
+<%= render 'full_class' %>
+
+<% else %>
+
 <%= render 'subscribe_form' %>
+<% end %>
 </li>
+
+

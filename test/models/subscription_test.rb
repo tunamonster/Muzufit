@@ -1,11 +1,12 @@
 require 'test_helper'
 
 class SubscriptionTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
   def setup
-  	@subscription = Subscription.new(post_id: 1, subscriber_id: users(:customer).id)
+    @cposting = cpostings(:one) #has one spot
+    @customer = users(:customer)
+    @customer2 = users(:customer2)
+    @subscription = Subscription.new(post_id: @cposting.id, subscriber_id: @customer.id)
+
   end
 
   test "should be valid" do
@@ -27,6 +28,13 @@ class SubscriptionTest < ActiveSupport::TestCase
   	@subscription.save
   	@subscription2 = Subscription.new(post_id: @subscription.post_id, subscriber_id: @subscription.subscriber_id)
   	assert_not @subscription2.valid?
+  end
+
+  test "subscriptions cannot exceed spots" do
+    @subscription.save
+    assert @cposting.subscriptions.count == @cposting.spots 
+    @cposting.build_subscription(subscriber: @customer2) 
+    assert_not @subscription2.valid?
   end
 
 end

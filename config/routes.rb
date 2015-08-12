@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   get 'faq' => 'static_pages#faq'  
 
-  resources :users
+  resources :users, only: [:show, :new, :create, :destroy]
   resources :cpostings
   resources :subscriptions
   # The priority is based upon order of creation: first created -> highest priority.
@@ -65,4 +65,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+ # match "*path" via: [:get, :post] => redirect("/") #redirects invalid url to root
+
 end

@@ -49,5 +49,9 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, nil)
   end
 
+  def subscribed?(post)      
+      Subscription.where(post_id: post.id,
+                 subscriber_id: self.id).exists?
+  end 
 
 end

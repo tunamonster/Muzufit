@@ -3,9 +3,9 @@
 one:
   content: MyText
   user_id: users(:company)
-  spots: 3
+  spots: 1
 
 two:
   content: MyText
-  user_id: users(:customer)
-  spots: 3
+  user_id: users(:company)
+  spots: 2

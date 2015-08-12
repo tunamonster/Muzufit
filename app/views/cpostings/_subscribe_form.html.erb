@@ -1,13 +1,14 @@
 <% unless current_user == @user %>
 	<div id="subscription_form" %>
 
-		<% if Subscription.where(post_id: @cposting.id,
-								 subscriber_id: current_user.id).exists? %>
-			
+		<% if current_user.subscribed?(@cposting)  %>			
 			<%= render 'unsubscribe' %>
-		<% else %>
-			
+		<% else %>			
 			<%= render 'subscribe' %>
 		<% end %>
+
+		
+
 	</div>
 <% end %>
+

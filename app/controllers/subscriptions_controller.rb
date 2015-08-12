@@ -8,17 +8,26 @@ class SubscriptionsController < ApplicationController
 
 	end
 
-	def create
-		@posting = Cposting.find(params[:post_id])	
-		current_user.subscriptions.create(post_id: @posting.id)
+	def create 
+		@cposting = Cposting.find(params[:post_id])	
+		Subscription.where(post: @cposting.id, subscriber: current_user.id).create
 		flash[:success] = "Subscribed!"
 		redirect_to subscriptions_path
 	end
 
-	def destroy 		
-		@subscription = Subscription.find(params[:id])	
-		@subscription.destroy
-		flash[:success] = "Unsubscribed succesfully" #from cposting.title
+	#def unsubscribe
+		#Subscription.find(params[:id]).destroy
+	#end 
+
+	def destroy
+	@subscription = Subscription.find_by_id(params[:id])
+	if !@subscription.nil? 
+		@subscription.destroy 
+		flash[:success] = "Unsubscribed succesfully" 
+	else
+		flash[:error] = "Already unsubscribed!"
+	end
 		redirect_to subscriptions_path
 	end
+
 end
