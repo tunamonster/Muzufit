@@ -4,6 +4,13 @@ module SessionsHelper
 		session[:user_id] = user.id 
 	end
 
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in"
+        redirect_to login_url
+      end
+    end
+    
 	def current_user #returns current user according to remember token cookie
 		if (user_id = session[:user_id])
       		@current_user ||= User.find_by(id: user_id)

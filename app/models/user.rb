@@ -31,10 +31,6 @@ class User < ActiveRecord::Base
   end
 
 
-
-
-
-
   def remember
   	self.remember_token = User.new_token
   	update_attribute(:remember_digest, User.digest(remember_token))
@@ -53,5 +49,6 @@ class User < ActiveRecord::Base
       Subscription.where(post_id: post.id,
                  subscriber_id: self.id).exists?
   end 
+
 
 end

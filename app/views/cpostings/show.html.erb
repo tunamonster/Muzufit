@@ -21,6 +21,7 @@
 
 </li>
 
-<% if @cposting.subscriptions.any? %>
+<% if @cposting.subscriptions.any? && current_user.company%>
 <%= render 'subscriber_list' %>
+
 <% end %>

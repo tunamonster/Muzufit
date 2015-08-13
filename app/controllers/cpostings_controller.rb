@@ -1,10 +1,14 @@
 class CpostingsController < ApplicationController
+	before_action :logged_in_user, only: [:show, :index, :create, :destroy, :edit, :new, :update, :destroy ]
+
+	#before_action :company_user?, only: [:show, 		  :create, :destroy, :edit, :new, :update, :destroy, :my_postings]
+	#before_action :correct_company_user, only: [:edit, :update, :destroy]
+	#before_action :customer_user?, only: [:show, :index]
+
 	def show
 		@cposting = Cposting.find(params[:id])
 		@spots_left = @cposting.spots_left
-		@subscriptions = @cposting.subscriptions
-		
-
+		@subscriptions = @cposting.subscriptions		
 	end
 
 	def index
@@ -30,11 +34,17 @@ class CpostingsController < ApplicationController
 		end
 	end
 
-	def subscribers
-		@cposting = Cposting.find(params[:id])
-	end
 
 private 
+
+    def company_user?
+      redirect_to my_postings_path unless current_user.company
+    end
+
+    def customer_user?
+      redirect_to cpostings_path unless current_user.company == false
+
+    end
 
 	def cposting_params
 		params.require(:cposting).permit(:content, :spots)
