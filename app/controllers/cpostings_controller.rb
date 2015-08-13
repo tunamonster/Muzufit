@@ -2,10 +2,17 @@ class CpostingsController < ApplicationController
 	def show
 		@cposting = Cposting.find(params[:id])
 		@spots_left = @cposting.spots_left
+		@subscriptions = @cposting.subscriptions
+		
+
 	end
 
 	def index
 		@cpostings = Cposting.paginate(page: params[:page], :per_page => 5)
+	end
+
+	def company_posts
+		@cpostings = Cposting.where(user_id: current_user.id)
 	end
 
 	def new
@@ -23,6 +30,9 @@ class CpostingsController < ApplicationController
 		end
 	end
 
+	def subscribers
+		@cposting = Cposting.find(params[:id])
+	end
 
 private 
 

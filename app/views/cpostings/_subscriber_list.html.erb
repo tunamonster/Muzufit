@@ -1,0 +1,6 @@
+attending:  
+<%= @subscriptions.each do |s| %>
+<li>
+<%= User.find_by(id: s.subscriber).name %>
+</li>
+<% end %>

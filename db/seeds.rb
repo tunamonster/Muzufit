@@ -60,5 +60,5 @@ User.create!(name:  "Example User",
              )
 Cposting.create!(content: "NOT BOOKED FULL (yet)",
 				spots: 1,
-				user_id: 1)
+				user_id: 47) #example user
 

@@ -7,6 +7,7 @@
 <span class = "spots"><%= pluralize(@spots_left, 'spot') %> left to go </span>
 <% end %>
 
+
 <span class = "content"><%= @cposting.content %> </span>
 
 <% if @cposting.full_class? && !current_user.subscribed?(@cposting) %>
@@ -16,6 +17,10 @@
 
 <%= render 'subscribe_form' %>
 <% end %>
+
+
 </li>
 
-
+<% if @cposting.subscriptions.any? %>
+<%= render 'subscriber_list' %>
+<% end %>

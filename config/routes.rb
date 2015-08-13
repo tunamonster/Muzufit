@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'signup' => 'users#new'
   get 'faq' => 'static_pages#faq'  
+  get 'my_postings' => 'cpostings#company_posts'
 
   resources :users, only: [:show, :new, :create, :destroy]
   resources :cpostings

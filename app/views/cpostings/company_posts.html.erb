@@ -1,0 +1,9 @@
+<ul class = "my_posts">
+<% @cpostings.each do |cp| %>
+
+<li>
+<%= link_to cp.content, cp %>
+slots filled: <%= cp.subscriptions.count.to_s + "/" + cp.spots.to_s %>
+</li>
+<% end %>
+</ul>
