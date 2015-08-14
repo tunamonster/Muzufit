@@ -1,8 +1,8 @@
 class CpostingsController < ApplicationController
 	before_action :logged_in_user, only: [:show, :index, :create, :destroy, :edit, :new, :update, :destroy ]
 
-	#before_action :company_user?, only: [:show, 		  :create, :destroy, :edit, :new, :update, :destroy, :my_postings]
-	#before_action :correct_company_user, only: [:edit, :update, :destroy]
+	before_action :company_user?, only: [:show, 		  :create, :destroy, :edit, :new, :update, :destroy, :my_postings]
+	before_action :correct_company_user, only: [:edit, :update, :destroy]
 	#before_action :customer_user?, only: [:show, :index]
 
 	def show
@@ -44,6 +44,10 @@ private
     def customer_user?
       redirect_to cpostings_path unless current_user.company == false
 
+    end
+
+    def correct_company_user
+    	redirect_to root_url unless Cposting.find_by(id: params[:id]).user = current_user
     end
 
 	def cposting_params

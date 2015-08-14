@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810081622) do
+ActiveRecord::Schema.define(version: 20150813161612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20150810081622) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "spots"
+    t.datetime "date"
+    t.string   "title"
   end
 
   add_index "cpostings", ["user_id", "created_at"], name: "index_cpostings_on_user_id_and_created_at", using: :btree

@@ -29,10 +29,12 @@ end
 
 
 6.times do |spots|
+	title = "FUN STUFF NUMBER" + spots+1.to_s
 	content = Faker::Lorem.sentence
 	user_id = spots+1 
 	spots = spots+1 
-	Cposting.create!(content: content,
+	Cposting.create!(title: title,
+					content: content,
 					user_id: user_id,
 					spots: spots)
 end

@@ -1,7 +1,8 @@
 
 <li id = "cposting-<%= @cposting.id %>">
 
-<h1><%= link_to @cposting.user.name, @cposting.user %></h1>
+<h1><%= @cposting.title %></h1>
+<h4><%= link_to @cposting.user.name, @cposting.user %></h4>
 
 <% unless @cposting.full_class? %>
 <span class = "spots"><%= pluralize(@spots_left, 'spot') %> left to go </span>
