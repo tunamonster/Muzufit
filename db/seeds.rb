@@ -29,7 +29,7 @@ end
 
 
 6.times do |spots|
-	title = "FUN STUFF NUMBER" + spots+1.to_s
+	title = "FUN STUFF NUMBER #{spots+1}" 
 	content = Faker::Lorem.sentence
 	user_id = spots+1 
 	spots = spots+1 

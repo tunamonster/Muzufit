@@ -4,6 +4,9 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
 
         <% if logged_in? %>
+        <li><%= render 'layouts/search_bar' %></li>
+        
+
         <li><%= link_to "log out", logout_path, method: :delete %>
         <% else %>
         <li><%= link_to "register", signup_path %></li>

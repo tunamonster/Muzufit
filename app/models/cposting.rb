@@ -1,4 +1,7 @@
 class Cposting < ActiveRecord::Base
+  include PgSearch
+  multisearchable :against => [:title, :content]
+  
   belongs_to :user 
   has_many :subscriptions, 
   			foreign_key: "post_id", 
@@ -10,6 +13,7 @@ class Cposting < ActiveRecord::Base
   validates :spots, :numericality => { only_integer: true,
   									:greater_than_or_equal_to => 1,
   									:less_than_or_equal_to => 10}
+
 
 
 def spots_left #returns the number of places left in this class

@@ -1,10 +1,9 @@
+
 <ul class = "cpostings">
-<% @cpostings.each do |cp| %>
-
-
-<li><%= link_to cp.content, cp %>
-</li>
-<% end %>
+	<% @cpostings.each do |cp| %>
+		<li><%= link_to cp.title, cp %>
+		</li>
+	<% end %>
 </ul>
 
 <%= will_paginate %>

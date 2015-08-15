@@ -1,0 +1,16 @@
+
+
+ 	<% if @search_results.any? %>
+ 	<h6><%= "#{@search_results.count} listings found for #{params[:query]}" %>
+ 		<ul class ="search-results">
+ 		<% @search_results.each do |s| %>
+ 		<li><%= link_to s.searchable.title, s.searchable %></li>
+ 	<% end %>
+</ul>
+
+	<% else %>
+		<h6><%= "no results for: #{params[:query]}" %> </h6>
+	<% end %>
+
+
+

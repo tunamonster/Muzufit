@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   get 'faq' => 'static_pages#faq'  
   get 'my_postings' => 'cpostings#company_posts'
+  get 'search' => 'cpostings#search'
 
   resources :users, only: [:show, :new, :create, :destroy]
   resources :cpostings
