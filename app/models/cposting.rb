@@ -16,7 +16,7 @@ class Cposting < ActiveRecord::Base
   									:greater_than_or_equal_to => 1,
   									:less_than_or_equal_to => 10}
 
-  VALID_TIME_REGEX = /\A[0-2][0-4]:[0-5][0-9]\z/
+  VALID_TIME_REGEX = /\A[0-2][0-9]:[0-5][0-9]\z/
   validates :class_time, format: { with: VALID_TIME_REGEX }
 
 
