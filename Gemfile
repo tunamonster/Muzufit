@@ -17,6 +17,7 @@ gem 'faker'
 gem 'materialize-sass'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -30,6 +31,10 @@ gem 'will_paginate'
 
  #Use pg_search to search the databse 
  gem 'pg_search'
+
+ #Use pickadate for selecting dates
+ gem 'pickadate-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

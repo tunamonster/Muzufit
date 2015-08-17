@@ -1,7 +1,27 @@
+/*
+*= require jquery-ui
+*= require_self
+*= require_tree .
+*/
+
 @import "materialize/components/color";
 $primary-color: color("red", "red") !default;
 @import 'materialize';
 
+<<<<<<< HEAD
+=======
+
+header, main, footer {
+  padding-left: 240px;
+}
+
+@media only screen and (max-width: 992px) {
+header, main, footer {
+    padding-left: 0px;
+  }
+}
+
+>>>>>>> master
 body {
     display: flex;
     min-height: 100vh;
