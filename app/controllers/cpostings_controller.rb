@@ -33,6 +33,7 @@ class CpostingsController < ApplicationController
 			redirect_to @cposting
 		else
 			flash.now[:error] = "error error error"
+			render 'new'
 			end
 
 	end
@@ -54,6 +55,6 @@ private
     end
 
 	def cposting_params
-		params.require(:cposting).permit(:content, :spots)
+		params.require(:cposting).permit(:content, :spots, :class_date, :class_time, :title)
 	end
 end
