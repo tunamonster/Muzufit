@@ -21,4 +21,6 @@
             </div>
           </div>
         </footer>
+        <% if Rails.env.development? %>
         <%= console %>
+        <% end %>
