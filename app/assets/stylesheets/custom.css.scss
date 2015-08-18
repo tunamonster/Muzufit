@@ -24,14 +24,3 @@ vertical-align: middle;
   margin-top: 45px;
   @include box_sizing;
 }
-
-header, main, footer {
-   padding-left: 240px;
- }
-
- @media only screen and (max-width : 992px) {
-   header, main, footer {
-     padding-left: 0;
-   }
- }
-      
