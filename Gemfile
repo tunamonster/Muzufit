@@ -17,7 +17,7 @@ gem 'faker'
 gem 'materialize-sass'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -37,7 +37,14 @@ gem 'will_paginate'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+#use Puma as the app server
+group :production do 
 
+gem 'puma'
+
+gem 'rails_12factor'
+
+end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

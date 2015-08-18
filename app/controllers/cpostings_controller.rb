@@ -28,6 +28,7 @@ class CpostingsController < ApplicationController
 	def create
 	@cposting = Cposting.new(cposting_params)
 	@cposting.user_id = current_user.id
+	
 		if @cposting.save
 			flash[:success] = "Posting created!"
 			redirect_to @cposting

@@ -9,14 +9,9 @@ class Subscription < ActiveRecord::Base
 
 
 
-def class_not_full
-	post.spots_left > 0 #stackoverflow answer
-end
+def class_not_full #checks if there are spots left for the posting.
+	errors.add(:post, "posting is already full") unless !post.nil? && post.spots > post.subscriptions.count 
+end 
 
-#def not_overbooked?
-#	 errors.add_to_base("Class is booked!") unless
-#	 Subscription.where(post_id: self.post_id).count.to_i <= Cposting.find_by(id: self.post_id).spots.to_i #valid in console
-#	end
-#end
 
 end
