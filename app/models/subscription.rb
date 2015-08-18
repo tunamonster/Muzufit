@@ -9,7 +9,7 @@ class Subscription < ActiveRecord::Base
 
 
 
-def class_not_full #checks if there are spots left for the posting
+def class_not_full #checks if there are spots left for the posting.
 	errors.add(:post, "posting is already full") unless !post.nil? && post.spots > post.subscriptions.count 
 end 
 
