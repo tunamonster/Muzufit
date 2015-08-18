@@ -18,21 +18,15 @@ class Cposting < ActiveRecord::Base
 
   VALID_TIME_REGEX = /\A[0-2][0-9]:[0-5][0-9]\z/
   validates :class_time, format: { with: VALID_TIME_REGEX }
-
+  validate :date_in_future
 
 attr_accessor :class_date, :class_time #split date into date and time
-#after_initialize :get_datetimes #convert db format to accessors
 before_validation :set_datetimes #convert accessors back to db format
 
-def get_datetimes
-  self.class_date ||= self.date.to_date.to_s(:db) #extract date to yyyy-mm-dd
-  self.class_time ||= "#{'%02d' % self.date.hour }:#{'%02d' % self.date.min}" #extract the time
-end
 
 def set_datetimes
   self.date = "#{self.class_date} #{self.class_time}:00" #convert fields back to db format
 end
-
 
 def spots_left #returns the number of places left in this class
   self.spots - self.subscriptions.count
@@ -41,10 +35,16 @@ end
 def full_class? #returns true if there are no spots left for this class
   self.spots_left == 0
 end
+
+def convert_to_datetime #convert the datepicker form in /new to datetime
+      DateTime.parse(self.date)
+end
   
+def date_in_future
+  errors.add(:date, "date has to be in the future") unless !date.nil? && date > DateTime.now
+end
+
   private
 
-  def convert_to_datetime #convert the datepicker form in /new to datetime
-      DateTime.parse(self.date)
-  end
+
 end
