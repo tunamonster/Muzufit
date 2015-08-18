@@ -1,7 +1,12 @@
 // Place all the styles related to the Cpostings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+header, main, footer {
+	 padding-left: 240px;
+ }
 
-h1{
-	color: blue;
-}
+ @media only screen and (max-width : 992px) {
+	 header, main, footer {
+		 padding-left: 0;
+	 }
+ }
