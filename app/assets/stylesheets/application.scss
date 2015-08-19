@@ -18,6 +18,18 @@ body {
     flex: 1 0 auto;
   }
 
+.sidebarActive {
+  header, main, footer {
+   padding-left: 240px;
+ }
+
+ @media only screen and (max-width : 992px) {
+   header, main, footer {
+     padding-left: 0;
+   }
+ }
+
+}
 //the below is not working, to work it would be necessary to create the sidebarGenerated variable
 //in the application.html.erb and then import it to this file via a custom function.
 //the alternative would be to add a dynamic class to header, main and footer stating if sidebar is generated or not.
