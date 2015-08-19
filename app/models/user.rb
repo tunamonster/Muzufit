@@ -1,11 +1,15 @@
 class User < ActiveRecord::Base
   has_many :cpostings,
-   :foreign_key => :user_id,
-   dependent: :destroy 
+   foreign_key: "user_id",
+   dependent: :destroy  #if user is destroyed, all cpostings go out of the window too
 
    has_many :subscriptions, 
             foreign_key: "subscriber_id", 
             dependent: :destroy
+
+    has_many :templates,
+              foreign_key: "user_id",
+              dependent: :destroy 
 
 	  attr_accessor :remember_token
   before_save { self.email = email.downcase }

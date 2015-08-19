@@ -1,27 +1,41 @@
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
 
-<!-- Compiled and minified JavaScript -->
+
+<!-- Compiled and minified JavaScript for calendar popout-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
 
 <%= form_for(@cposting) do |f| %>
 
     <div class="row">
 	<div class="row col s6">
+
+		<%= f.label "dropdown template" %>
+		<%= f.select("cposting", "content", current_user.templates.collect {|t| [t.title, t.id]}) %>
+	
+
+	<div class= "input-field" >
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
+
+	<div class= "input-field" >
 		<%= f.label :content %>
 		<%= f.text_field :content %>
+	</div>
 
+	<div class= "input-field" >
 		<%= f.label :spots %>
 		<%= f.number_field :spots, min:1, max:10 %> 
-
+	</div>
+	<div class= "input-field" >
 		<%= f.label :date %>
-		<%= f.datetime_field :class_date, class: 'datepicker' %>
+		<%= f.text_field :class_date, class: 'datepicker' %>
+	</div>
+	<div class= "input-field" >
+		<%= f.label :time %>
 		<%= f.text_field :class_time %>
+	</div>
 
-<br>
-
-only between 1 and 10 also add date, location and confirmation
-
+</div>
 	</div>
 	</div>
    <%= f.submit 'Create posting', class: "btn waves-effect waves-light orange darker-1" %>
@@ -29,13 +43,12 @@ only between 1 and 10 also add date, location and confirmation
 
 
 <script>
-//$(document).ready(function() {
-  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
  $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year
+    selectYears: 1, // Creates a dropdown of 1 year to control year
     format: 'yyyy-mm-dd',
-    format_submit: 'yyyy-mm-dd'
+    format_submit: 'yyyy-mm-dd',
+    min: true //current date is the minimum date you can select
   });
 </script>
 

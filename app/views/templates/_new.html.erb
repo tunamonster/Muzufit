@@ -1,0 +1,12 @@
+<%= form_for(@template) do |f| %>
+	<%= f.label :title %> 
+	<%= f.text_field :title %>
+
+	<div class="input-field col s12">
+    <textarea id="template_content" name="template[content]" class="materialize-textarea"></textarea>
+    <label for="template_content">Content</label>
+    </div>
+
+
+    <%= f.submit 'Create', class: " btn-flat" %>
+    <% end %>
