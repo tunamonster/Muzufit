@@ -20,6 +20,27 @@ class TemplatesController < ApplicationController
 		@templates = current_user.templates
 	end
 
+	def edit
+		@template = Template.find(params[:id])
+	end
+
+	def update
+		@template = Template.find(params[:id])
+		if @template.update_attributes(template_params)
+			flash[:success] = "#{@template.title} updated!"
+			render 'index'
+		else
+			flash[:error] = "Oops! Something went wrong"
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@template = Template.find(params[:id]).destroy
+		flash[:success] = "#{@template.title} deleted!"
+		redirect_to templates_url
+	end
+
 	private
 		def template_params
 			params.require(:template).permit(:title, :content)

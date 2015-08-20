@@ -5,7 +5,8 @@
 	<% if !@templates.nil? %>
 		<ul class = "templates">
 			<% @templates.each do |t| %>
-				<li><%= link_to t.title, t%></li>
+				<li><%= link_to t.title, t%> <%= link_to 'Edit', edit_template_path(t) %> <%= link_to 'Destroy', t, method: :delete,
+                                     data: { confirm: 'Are you sure you want to delete this template?' } %></li>
 			<% end %>
 		</ul>
 	<% else %> 
