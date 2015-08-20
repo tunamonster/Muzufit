@@ -23,6 +23,7 @@ class CpostingsController < ApplicationController
 
 	def new
 		@cposting = Cposting.new
+		@templates = current_user.templates
 	end
 
 	def create
