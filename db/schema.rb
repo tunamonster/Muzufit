@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150815135243) do
+ActiveRecord::Schema.define(version: 20150818154517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 20150815135243) do
 
   add_index "subscriptions", ["post_id", "subscriber_id"], name: "index_subscriptions_on_post_id_and_subscriber_id", unique: true, using: :btree
 
+  create_table "templates", force: :cascade do |t|
+    t.text     "content"
+    t.text     "title"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "templates", ["user_id", "created_at"], name: "index_templates_on_user_id_and_created_at", using: :btree
+  add_index "templates", ["user_id"], name: "index_templates_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
@@ -59,4 +70,5 @@ ActiveRecord::Schema.define(version: 20150815135243) do
   end
 
   add_foreign_key "cpostings", "users"
+  add_foreign_key "templates", "users"
 end

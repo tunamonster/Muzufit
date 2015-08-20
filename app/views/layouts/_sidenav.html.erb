@@ -4,15 +4,16 @@
         <ul id="slide-out" class="side-nav fixed">
         	<li><%= link_to "my profile", user_path(current_user) %></li>
         	<% if current_user.company? %>
-            <li><%= link_to "company page", '#' %></li>
-            <li><%= link_to "view my postings", my_postings_path %> </li>
-            <li><%= link_to "create new posting", new_cposting_path %> </li>
+            <li><%= link_to "postings", my_postings_path %> </li>
+            <li><%= link_to "templates", templates_path%></li>
+            <li><%= link_to "new posting", new_cposting_path %> </li>
+            <li><%= link_to "money money money", '#' %></li>
             <% else %>
             <li><%= link_to "my subscriptions", subscriptions_path %> </li>
             <li><%= link_to "view all classes", cpostings_path %> </li>
             <li><%= link_to "customer page", '#' %></li>
             <% end %>
-            <li><%= link_to "cust+comp page", '#' %></li>
+            
           </ul>
 
 <% end %>

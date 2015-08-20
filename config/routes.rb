@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'faq' => 'static_pages#faq'  
   get 'my_postings' => 'cpostings#company_posts'
   get 'search' => 'cpostings#search'
-
+  resources :templates
   resources :users, only: [:show, :new, :create, :destroy]
   resources :cpostings
   resources :subscriptions
