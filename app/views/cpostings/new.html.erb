@@ -8,7 +8,7 @@
 
     <div class="row">
 	<div class="row col s6">
-
+		
 		<select class="browser-default" name="template[select]" id="template_select"><option value="">Choose a template</option>
 
 		   	
@@ -16,20 +16,29 @@
 			<option value="<%= t.title %>" data-content="<%= t.content %>"><%=t.title %></option>
 		<% end %>
 		</select>
+		
 
+		
 		<%= f.label :title %>
 		<%= f.text_field :title %>
+		
 
+		
 		<%= f.label :content %>
 		<textarea name="cposting[content]" id="cposting_content" class="materialize-textarea"></textarea>
-
+		
+		<div class="input-field">
 		<%= f.label :spots %>
 		<%= f.number_field :spots, min:1, max:10 %> 
+		</div>
 
+		
 		<%= f.label :date %>
 		<%= f.datetime_field :class_date, class: 'datepicker' %>
+		<div class="input-field">
+		<%= f.label :time %>
 		<%= f.text_field :class_time %>
-
+		</div>		
 
 	</div>
 	</div>
