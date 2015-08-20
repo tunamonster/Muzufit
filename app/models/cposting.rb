@@ -17,7 +17,7 @@ class Cposting < ActiveRecord::Base
   									:less_than_or_equal_to => 10}
 
   VALID_TIME_REGEX = /\A[0-2][0-9]:[0-5][0-9]\z/
-  validates :class_time, format: { with: VALID_TIME_REGEX }
+  #validates :class_time, format: { with: VALID_TIME_REGEX }
   validate :date_in_future
 
 attr_accessor :class_date, :class_time #split date into date and time
@@ -41,7 +41,7 @@ def convert_to_datetime #convert the datepicker form in /new to datetime
 end
   
 def date_in_future
-  errors.add(:date, "date has to be in the future") unless !date.nil? && date > DateTime.now
+  errors.add(:date, "date has to be in the future") unless !self.date.nil? && self.date > DateTime.now
 end
 
   private
