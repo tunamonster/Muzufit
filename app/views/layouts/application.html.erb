@@ -11,14 +11,27 @@
 
 
 
-<body <%= sidebarGenerated %> >
-  <header <%= sidebarGenerated %> ><%= render 'layouts/header' %></header>
-  <main <%= sidebarGenerated %> >
+<body>
+  <header> <%= render 'layouts/header' %></header>
+  <main>
 
     <%= render :partial => 'layouts/sidenav' if params[:controller] == 'cpostings'%>
     <%= render :partial => 'layouts/sidenav' if params[:controller] == 'subscriptions'%>
     <%= render :partial => 'layouts/sidenav' if params[:controller] == 'users'%>
 
+<% if params[:controller] == 'cpostings' or params[:controller] == 'subscriptions' or params[:controller] == 'users' %>
+<style>
+header, main, footer {
+   padding-left: 240px;
+}
+
+@media only screen and (max-width : 992px) {
+ header, main, footer {
+   padding-left: 0;
+ }
+}
+</style>
+<% end %>
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>
 
