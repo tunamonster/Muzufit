@@ -15,11 +15,9 @@
   <header> <%= render 'layouts/header' %></header>
   <main>
 
-    <%= render :partial => 'layouts/sidenav' if params[:controller] == 'cpostings'%>
-    <%= render :partial => 'layouts/sidenav' if params[:controller] == 'subscriptions'%>
-    <%= render :partial => 'layouts/sidenav' if params[:controller] == 'users'%>
+    <%= render :partial => 'layouts/sidenav' if logged_in? %>
 
-<% if params[:controller] == 'cpostings' or params[:controller] == 'subscriptions' or params[:controller] == 'users' %>
+<% if logged_in? %>
 <style>
 header, main, footer {
    padding-left: 240px;
