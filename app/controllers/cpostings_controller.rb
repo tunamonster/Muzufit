@@ -23,6 +23,8 @@ class CpostingsController < ApplicationController
 
 	def new
 		@cposting = Cposting.new
+		@templates = current_user.templates
+
 	end
 
 	def create
@@ -31,11 +33,11 @@ class CpostingsController < ApplicationController
 	
 		if @cposting.save
 			flash[:success] = "Posting created!"
-			redirect_to @cposting
+			redirect_to current_user
 		else
 			flash.now[:error] = "error error error"
 			render 'new'
-			end
+		end
 
 	end
 

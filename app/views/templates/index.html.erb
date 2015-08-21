@@ -1,0 +1,40 @@
+<!-- Compiled and minified JavaScript for modal-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+
+<h1> My templates </h1>
+	<% if !@templates.nil? %>
+		<ul class = "templates">
+			<% @templates.each do |t| %>
+				<li><%= link_to t.title, t%> <%= link_to 'Edit', edit_template_path(t) %> <%= link_to 'Destroy', t, method: :delete,
+                                     data: { confirm: 'Are you sure you want to delete this template?' } %></li>
+			<% end %>
+		</ul>
+	<% else %> 
+	Templates are an easy way to quickly create postings
+
+	<% end %>
+	<br>
+	  <a class="btn-floating btn-large  orange tooltipped modal-trigger" 
+	  data-delay="50" 
+	  data-tooltip="Add new template" 
+	  data-position="right"
+	  href ="#new-template-modal">
+	  <i class="material-icons">add</i></a>
+	</br>
+
+
+<!-- Modal Structure -->
+<div id="new-template-modal" class="modal">
+    <div class="modal-content">
+      <h4>New template</h4>
+      <%= render 'templates/new' %>
+    </div>
+    
+  </div>
+
+  <script>
+$(document).ready(function() {
+  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+  $('.modal-trigger').leanModal();
+});
+</script>
