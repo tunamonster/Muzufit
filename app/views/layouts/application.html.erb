@@ -8,15 +8,34 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
-<body>
-  <header><%= render 'layouts/header' %></header>
-  <main>
-    <%= render 'layouts/sidenav' %>
 
+
+
+<body>
+  <header> <%= render 'layouts/header' %></header>
+  <main>
+
+    <%= render :partial => 'layouts/sidenav' if params[:controller] == 'cpostings'%>
+    <%= render :partial => 'layouts/sidenav' if params[:controller] == 'subscriptions'%>
+    <%= render :partial => 'layouts/sidenav' if params[:controller] == 'users'%>
+
+<% if params[:controller] == 'cpostings' or params[:controller] == 'subscriptions' or params[:controller] == 'users' %>
+<style>
+header, main, footer {
+   padding-left: 240px;
+}
+
+@media only screen and (max-width : 992px) {
+ header, main, footer {
+   padding-left: 0;
+ }
+}
+</style>
+<% end %>
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>
 
   </main>
-<footer><%= render 'layouts/footer' %></footer>
+<footer class="page-footer orange darken-1"><%= render 'layouts/footer' %></footer>
 </body>
 </html>
