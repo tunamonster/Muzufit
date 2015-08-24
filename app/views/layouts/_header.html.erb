@@ -4,13 +4,17 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
 
         <% if logged_in? %>
-        <li><%= render 'layouts/search_bar' %></li>
-        
-
-        <li><%= link_to "log out", logout_path, method: :delete %>
+          <li><%= render 'layouts/search_bar' %></li>
+          <li><%= link_to "log out", logout_path, method: :delete %>
         <% else %>
-        <li><%= link_to "register", signup_path %></li>
-        <li><%= link_to "log in", login_path %></li>
+        <!-- Modal Trigger -->
+          <li><a class="waves-effect waves-light btn modal-trigger" href="#signupmodal">Register</a></li>
+          <li><a class="waves-effect waves-light btn modal-trigger" href="#loginmodal">Login</a></li>
+
+          <!-- here for reference, old links
+          <li><%= link_to "register", signup_path %></li>
+          <li><%= link_to "log in", login_path %></li>
+        -->
         <% end %>
 
 
