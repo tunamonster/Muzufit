@@ -13,27 +13,44 @@
 
 <body>
   <header> <%= render 'layouts/header' %></header>
-  <main>
+    <main>
+      <%= render :partial => 'layouts/sidenav' if logged_in? %>
+      <% if logged_in? %>
+        <style>
+          header, main, footer {
+            padding-left: 240px;
+          }
 
-    <%= render :partial => 'layouts/sidenav' if logged_in? %>
+          @media only screen and (max-width : 992px) {
+            header, main, footer {
+              padding-left: 0;
+            }
+          }
+        </style>
+      <% end %>
+<%= yield %>
+<%= debug(params) if Rails.env.development? %>
 
-<% if logged_in? %>
-<style>
-header, main, footer {
-   padding-left: 240px;
-}
 
-@media only screen and (max-width : 992px) {
- header, main, footer {
-   padding-left: 0;
- }
-}
-</style>
-<% end %>
-    <%= yield %>
-    <%= debug(params) if Rails.env.development? %>
+<!-- <% @user=User.new %> enabling the user and login form on all pages. uncomment if pages are added that are non-static and should have login option -->
+<!-- Modal Structure -->
+<div id="loginmodal" class="modal">
+  <div class="modal-content">
+    <%= render template: "sessions/new" %>
+  </div>
+</div>
+<!-- Modal Structure -->
+<div id="signupmodal" class="modal">
+  <div class="modal-content">
+    <%= render template: "users/new" %>
+  </div>
+</div>
 
-  </main>
+
+
+
+</main>
+
 <footer class="page-footer orange darken-1"><%= render 'layouts/footer' %></footer>
 </body>
 </html>
