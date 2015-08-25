@@ -1,20 +1,40 @@
 
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
-    <div class="row">
-		<div class="row col s6">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+  <div class="row">
+      <div class="row">
+		    <div class="row col s8">
+          <div class="input-field col s8">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="row col s8">
+            <div class="input-field col s8">
+              <%= f.label :email %>
+              <%= f.email_field :email %>
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="row col s8">
+          <div class="input-field col s8">
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="row col s8">
+            <div class="input-field col s8">
+              <%= f.label :password_confirmation, "Confirmation" %>
+              <%= f.password_field :password_confirmation %>
+            </div>
+          </div>
+        </div>
+      <%= f.submit 'Create my account', class: "btn btn-primary orange darker-1" %>
 		</div>
-		</div>
-      <%= f.submit 'Create my account', class: "btn waves-effect waves-light orange darker-1" %>
+
     <% end %>
