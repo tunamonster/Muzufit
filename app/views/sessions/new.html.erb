@@ -1,17 +1,27 @@
     <%= form_for(:session, url: login_path) do |f| %>
      	<div class="row">
-		<div class="row col s6">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-    <input type="checkbox" name="session[remember_me]" id="session_remember_me" />
-    <label for="session_remember_me">Remember me on this computer</label>  <!-- rewrite checkbox in ruby -->
-
+        <div class="row">
+		      <div class="row col s8">
+              <div class="input-field col s8">
+              <%= f.label :email %>
+              <%= f.email_field :email%>
+            </div>
+          </div>
+        </div>
+          <div class="row">
+            <div class="row col s8">
+              <div class="input-field col s8">
+              <%= f.label :password %>
+              <%= f.password_field :password %>
+            </div>
+          </div>
+        </div>
+          <div class="row">
+            <input type="checkbox" name="session[remember_me]" id="session_remember_me" />
+            <label for="session_remember_me">Remember me on this computer</label>  <!-- rewrite checkbox in ruby -->
+          </div>
+    <%= f.submit "Log in", class: "btn btn-primary orange darker-1" %>
     </div>
-  </div>
 
-      <%= f.submit "Log in", class: "btn btn-primary orange darker-1" %>
+
     <% end %>
