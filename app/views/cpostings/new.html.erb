@@ -1,51 +1,46 @@
-
-
-<!-- Compiled and minified JavaScript for calendar popout-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
-
 <h4> Create new posting </h4>
 <%= form_for(@cposting) do |f| %>
 
     <div class="row">
 	<div class="row col s6">
-		
+
 		<select class="browser-default" name="template[select]" id="template_select"><option value="">Choose a template</option>
 
-		   	
+
 		<% @templates.each do |t| %>
 			<option value="<%= t.title %>" data-content="<%= t.content %>"><%=t.title %></option>
 		<% end %>
 		</select>
-		
 
-		
+
+
 		<%= f.label :title %>
 		<%= f.text_field :title %>
-		
 
-		
+
+
 		<%= f.label :content %>
 		<textarea name="cposting[content]" id="cposting_content" class="materialize-textarea"></textarea>
-		
+
 		<div class="input-field">
 		<%= f.label :spots %>
-		<%= f.number_field :spots, min:1, max:10 %> 
+		<%= f.number_field :spots, min:1, max:10 %>
 		</div>
 
-		
+
 		<%= f.label :date %>
 		<%= f.datetime_field :class_date, class: 'datepicker' %>
 		<div class="input-field">
 		<%= f.label :time %>
 		<%= f.text_field :class_time %>
-		</div>		
+		</div>
 
 	</div>
 	</div>
    <%= f.submit 'Create posting', class: "btn waves-effect waves-light orange darker-1" %>
 <% end %>
 
-        
+
 
 <script>
  $('.datepicker').pickadate({
@@ -68,4 +63,3 @@ $(document).ready(function(){
 
 
 </script>
-
