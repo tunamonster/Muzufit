@@ -4,6 +4,7 @@
 <h1><%= @cposting.title %></h1>
 <h4><%= link_to @cposting.user.name, @cposting.user %></h4>
 <h6><%= @cposting.date %></h6>
+<%= image_tag @cposting.picture.url if @cposting.picture? %>
 <% unless @cposting.full_class? %>
 <span class = "spots"><%= pluralize(@spots_left, 'spot') %> left to go </span>
 <% end %>

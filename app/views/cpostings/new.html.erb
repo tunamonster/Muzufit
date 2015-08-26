@@ -2,9 +2,9 @@
 <%= form_for(@cposting) do |f| %>
 
     <div class="row">
-	<div class="row col s6">
+	     <div class="row col s6">
 
-		<select class="browser-default" name="template[select]" id="template_select"><option value="">Choose a template</option>
+		    <select class="browser-default" name="template[select]" id="template_select"><option value="">Choose a template</option>
 
 
 		<% @templates.each do |t| %>
@@ -34,12 +34,22 @@
 		<%= f.label :time %>
 		<%= f.text_field :class_time %>
 		</div>
-
+    <div class="row">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    </div>
 	</div>
 	</div>
    <%= f.submit 'Create posting', class: "btn waves-effect waves-light orange darker-1" %>
 <% end %>
 
+<script type="text/javascript"> //checks if image is too large
+  $('#cposting_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>
 
 
 <script>
