@@ -6,18 +6,18 @@ class CpostingsController < ApplicationController
 	def show
 		@cposting = Cposting.find(params[:id])
 		@spots_left = @cposting.spots_left
-		@subscriptions = @cposting.subscriptions		
+		@subscriptions = @cposting.subscriptions
 	end
 
 	def index
-			@cpostings = Cposting.paginate(page: params[:page], :per_page => 5)	
+			@cpostings = Cposting.paginate(page: params[:page], :per_page => 5)
 	end
 
 	def company_posts
 		@cpostings = Cposting.where(user_id: current_user.id)
 	end
 
-	def search 
+	def search
 		@search_results = PgSearch.multisearch(params[:query]).paginate(page: params[:page], :per_page => 5)
 	end
 
@@ -30,7 +30,7 @@ class CpostingsController < ApplicationController
 	def create
 	@cposting = Cposting.new(cposting_params)
 	@cposting.user_id = current_user.id
-	
+
 		if @cposting.save
 			flash[:success] = "Posting created!"
 			redirect_to current_user
@@ -42,7 +42,7 @@ class CpostingsController < ApplicationController
 	end
 
 
-private 
+private
 
     def company_user?
       redirect_to my_postings_path unless current_user.company
@@ -58,6 +58,6 @@ private
     end
 
 	def cposting_params
-		params.require(:cposting).permit(:content, :spots, :class_date, :class_time, :title)
+		params.require(:cposting).permit(:content, :spots, :class_date, :class_time, :title, :picture)
 	end
 end
