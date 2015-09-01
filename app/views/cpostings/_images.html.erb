@@ -1,0 +1,5 @@
+<% if !@template.nil? %>
+<%= image_tag @template.picture.url if @template.picture? %> 
+<% else %>
+<%= image_tag @cposting.picture.url if @cposting.picture? %>
+<% end %>

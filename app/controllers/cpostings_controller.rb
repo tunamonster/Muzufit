@@ -6,7 +6,8 @@ class CpostingsController < ApplicationController
 	def show
 		@cposting = Cposting.find(params[:id])
 		@spots_left = @cposting.spots_left
-		@subscriptions = @cposting.subscriptions
+		@subscriptions = @cposting.subscriptions	
+		@template = current_user.templates.find_by_content(@cposting.content)	
 	end
 
 	def index
