@@ -1,4 +1,5 @@
 class SubscriptionsController < ApplicationController
+	before_action :correct_user, only: [:create, :destroy]
 	def show
 		@subscription = Subscription.find(params[:id])
 	end
@@ -15,9 +16,6 @@ class SubscriptionsController < ApplicationController
 		redirect_to subscriptions_path
 	end
 
-	#def unsubscribe
-		#Subscription.find(params[:id]).destroy
-	#end 
 
 	def destroy
 	@subscription = Subscription.find_by_id(params[:id])
@@ -30,4 +28,8 @@ class SubscriptionsController < ApplicationController
 		redirect_to subscriptions_path
 	end
 
+	private 
+		def correct_user 
+			@subscription = Subscription.find(params[:id])
+		end
 end
