@@ -19,7 +19,7 @@ class Cposting < ActiveRecord::Base
 
   VALID_TIME_REGEX = /\A[0-2][0-9]:[0-5][0-9]\z/
   #validates :class_time, format: { with: VALID_TIME_REGEX }
-  validate :date_in_future
+  #validate :date_in_future
   validate :picture_size
 
 attr_accessor :class_date, :class_time #split date into date and time
@@ -49,10 +49,9 @@ end
   private
 
   # Validates the size of an uploaded picture.
-     def picture_size
+         def picture_size
        if picture.size > 5.megabytes
          errors.add(:picture, "should be less than 5MB")
        end
      end
-
 end

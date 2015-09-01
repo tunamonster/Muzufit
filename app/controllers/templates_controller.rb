@@ -15,6 +15,11 @@ class TemplatesController < ApplicationController
 		render 'templates/index'
 	end
 
+	def show
+		@template = Template.find(params[:id])
+		#redirect_to root_url unless @template?
+	end
+
 	def index
 		@template = Template.new
 		@templates = current_user.templates
@@ -43,6 +48,6 @@ class TemplatesController < ApplicationController
 
 	private
 		def template_params
-			params.require(:template).permit(:title, :content)
+			params.require(:template).permit(:title, :content, :picture)
 		end
 end

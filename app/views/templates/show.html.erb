@@ -1,0 +1,6 @@
+<li id="template-<%= @template.id %>"> 
+	<h1><%= @template.title %> </h1> 
+	<span class = "content"><%= @template.content %> </span>
+
+<%= image_tag @template.picture.url if @template.picture? %>
+</li>
