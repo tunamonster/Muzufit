@@ -10,6 +10,11 @@ before_action :correct_user, only: [:edit, :update]
 	def show
 		@user = User.find(params[:id])
     @template = Template.new
+    #if @user.company
+    @cpostings = current_user.cpostings.where.not(starts_at: nil)
+    #else
+
+    #end
 	end
 	
   def edit

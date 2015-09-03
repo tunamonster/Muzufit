@@ -31,7 +31,7 @@ class CpostingsController < ApplicationController
 	def create
 	@cposting = Cposting.new(cposting_params)
 	@cposting.user_id = current_user.id
-
+	@templates = current_user.templates
 		if @cposting.save
 			flash[:success] = "Posting created!"
 			redirect_to current_user
@@ -43,7 +43,7 @@ class CpostingsController < ApplicationController
 	end
 
 	def edit
-		@cposting = cposting.find_by(params[:id])
+		#@cposting = Cposting.find_by(params[:id])
 	end
 
 private

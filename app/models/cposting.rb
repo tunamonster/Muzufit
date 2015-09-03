@@ -1,8 +1,11 @@
 class Cposting < ActiveRecord::Base
 
   include PgSearch
-
   multisearchable :against => [:title, :content]
+
+  extend SimpleCalendar
+  has_calendar attribute: :starts_at #uses starts_at (default) column as value
+
 
   belongs_to :user
   has_many :subscriptions,
@@ -19,15 +22,16 @@ class Cposting < ActiveRecord::Base
 
   VALID_TIME_REGEX = /\A[0-2][0-9]:[0-5][0-9]\z/
   #validates :class_time, format: { with: VALID_TIME_REGEX }
-  #validate :date_in_future
+  validate :date_in_future
   validate :picture_size
+
 
 attr_accessor :class_date, :class_time #split date into date and time
 before_validation :set_datetimes #convert accessors back to db format
 
 
 def set_datetimes
-  self.date = "#{self.class_date} #{self.class_time}:00" #convert fields back to db format
+  self.starts_at = "#{self.class_date} #{self.class_time}:00" #convert fields back to db format
 end
 
 def spots_left #returns the number of places left in this class
@@ -39,11 +43,11 @@ def full_class? #returns true if there are no spots left for this class
 end
 
 def convert_to_datetime #convert the datepicker form in /new to datetime
-      DateTime.parse(self.date)
+      DateTime.parse(self.starts_at)
 end
 
 def date_in_future
-  errors.add(:date, "date has to be in the future") unless !self.date.nil? && self.date > DateTime.now
+  errors.add(:starts_at, " has to be in the future") unless !self.starts_at.nil? && self.starts_at > DateTime.now
 end
 
   private
