@@ -1,5 +1,6 @@
 class SubscriptionsController < ApplicationController
-	before_action :correct_user, only: [:create, :destroy]
+	before_action :customer_user, only: :create
+	before_action :correct_user, only: :destroy
 	def show
 		@subscription = Subscription.find(params[:id])
 	end
@@ -29,7 +30,14 @@ class SubscriptionsController < ApplicationController
 	end
 
 	private 
-		def correct_user 
-			@subscription = Subscription.find(params[:id])
+		def customer_user 
+			redirect_to root_url unless current_user.company == false
 		end
+		
+		def correct_user #checks if the accessed subscription belongs to current user
+			@subscription = current_user.subscriptions.find_by(id: params[:id])
+			redirect_to root_url if @subscription.nil?
+		end
+
+		
 end

@@ -14,18 +14,17 @@
 
 <span class = "content"><%= @cposting.content %> </span>
 
-<% if @cposting.full_class? && !current_user.subscribed?(@cposting) %>
-<%= render 'full_class' %>
-
-<% else %>
-
-<%= render 'subscribe_form' %>
+<% if !current_user.company %>
+	<% if @cposting.full_class? && !current_user.subscribed?(@cposting) %>
+		<%= render 'full_class' %>
+	<% else %>
+		<%= render 'subscribe_form' %>
+	<% end %>
 <% end %>
-
 
 </li>
 
-<% if @cposting.subscriptions.any? && current_user.company%>
+<% if @cposting.subscriptions.any? && current_user == @cposting.user %>
 <%= render 'subscriber_list' %>
 
 <% end %>
