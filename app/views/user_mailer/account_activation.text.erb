@@ -1,0 +1,5 @@
+Hi <%= @user.name %>,
+
+Hola hola, welcome to the cru. Click link below to join in eternity
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

@@ -6,13 +6,14 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   get 'signup' => 'users#new'
-  get 'faq' => 'static_pages#faq'  
+  get 'faq' => 'static_pages#faq'
   get 'my_postings' => 'cpostings#company_posts'
   get 'search' => 'cpostings#search'
   resources :templates
   resources :users, only: [:show, :new, :create, :destroy]
   resources :cpostings
   resources :subscriptions
+  resources :account_activations, only: [:edit]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
