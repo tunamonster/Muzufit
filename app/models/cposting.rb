@@ -12,7 +12,7 @@ class Cposting < ActiveRecord::Base
   			foreign_key: "post_id",
   			dependent: :destroy
 
-  default_scope -> {order(created_at: :asc)}
+  default_scope -> {order(starts_at: :asc)}
   mount_uploader :picture, PictureUploader
   validates :content, presence: true
   validates :user_id, presence: true
