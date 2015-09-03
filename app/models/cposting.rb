@@ -22,7 +22,7 @@ class Cposting < ActiveRecord::Base
 
   VALID_TIME_REGEX = /\A[0-2][0-9]:[0-5][0-9]\z/
   #validates :class_time, format: { with: VALID_TIME_REGEX }
-  validate :date_in_future
+#  validate :date_in_future
   validate :picture_size
 
 
