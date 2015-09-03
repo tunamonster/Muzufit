@@ -8,7 +8,7 @@
 
 
 		<% @templates.each do |t| %>
-			<option value="<%= t.title %>" data-content="<%= t.content %>"><%=t.title %></option>
+			<option value="<%= t.title %>" data-content="<%= t.content %>" data-picture="<%= t.picture %>"><%=t.title %></option>
 		<% end %>
 		</select>
 
@@ -28,7 +28,7 @@
 		</div>
 
 
-		<%= f.label :date %>
+		<%= f.label :starts_at %>
 		<%= f.datetime_field :class_date, class: 'datepicker' %>
 		<div class="input-field">
 		<%= f.label :time %>
@@ -67,6 +67,7 @@ $(document).ready(function(){
 				var tempTi = $('#template_select').val(); //first option
 				$('#cposting_title').val(tempTi); //sets t.title, try to simplify
 				$('#cposting_content').html(selected.data('content')); //sets t.content
+				$('#cposting_picture').html(selected.data('picture')); //sets t.picture if it exists
 
 		});
 	});

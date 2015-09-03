@@ -1,6 +1,31 @@
 <h1> 
-<%= @user.name %>
-<%= @user.email %>
-<%= @user.company ? "company" : "customer" %>
+<%= current_user.name %>
+<%= current_user.company ? "company" : "customer" %>
 </h1>
+<div class= "col l4 offset-l2 s12">
+<%= week_calendar number_of_weeks: 2, events: @cpostings do |date, cp| %>
+  <%= date %>
 
+  <% cp.each do |c| %>
+    <div>
+      <%=  %>
+      <%= link_to c.title,c %> 
+      <%= c.subscriptions.count %>/<%= c.spots %>
+    </div>
+  <% end %>
+<% end %>
+</div> 
+
+
+upcoming classes 
+<% 3.times do |i| #put this in a partial %>
+ <%= i %>
+	<% if i == 0 %>
+	<%=  @cpostings.first.title %>
+	<% elsif i == 1 %>
+	<%= @cpostings.second.title %>
+	<% elsif i == 2 %> 
+	<%= @cpostings.third.title %>	
+    <% end %>
+
+<% end %>

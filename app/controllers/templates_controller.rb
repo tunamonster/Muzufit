@@ -1,4 +1,5 @@
 class TemplatesController < ApplicationController
+before_action :correct_user, only: [:edit, :update, :destroy]
 
 	def new 
 		@template = Template.new
@@ -13,6 +14,11 @@ class TemplatesController < ApplicationController
 			flash.now[:error] = "Error!"
 		end
 		render 'templates/index'
+	end
+
+	def show
+		@template = Template.find(params[:id])
+		#redirect_to root_url unless @template?
 	end
 
 	def index
@@ -43,6 +49,11 @@ class TemplatesController < ApplicationController
 
 	private
 		def template_params
-			params.require(:template).permit(:title, :content)
+			params.require(:template).permit(:title, :content, :picture)
+		end
+
+		def correct_user
+			@user = Template.find(params[:id]).user 
+			redirect_to root_url unless current_user == @user
 		end
 end
