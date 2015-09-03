@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20150903153330) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "spots"
-    t.datetime "date"
     t.string   "title"
     t.string   "picture"
     t.datetime "starts_at"
