@@ -3,4 +3,10 @@
 <%= current_user.company ? "company" : "customer" %>
 </h1>
 
+<% if current_user.company %>
 <%= render 'upcoming_classes' %>
+...
+
+<% else #customer %> 
+
+
