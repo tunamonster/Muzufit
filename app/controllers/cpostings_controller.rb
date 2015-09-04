@@ -15,7 +15,7 @@ class CpostingsController < ApplicationController
 	end
 
 	def company_posts
-		@cpostings = Cposting.where(user_id: current_user.id)
+		@cpostings = current_user.cpostings 
 	end
 
 	def search
