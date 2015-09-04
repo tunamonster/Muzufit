@@ -28,6 +28,8 @@
 <%= render 'subscriber_list' %>
 <% end %>
 
-<% if @cpostings.any? %>
+<% if @nucpostings.any?  %>
 <%= render 'other_dates' %>
+<% else %> 
+Request more classes from this studio 
 <% end %>
