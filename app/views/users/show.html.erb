@@ -1,14 +1,12 @@
-<h1> 
+<h1>
 <%= current_user.name %>
 <%= current_user.company ? "company" : "customer" %>
 </h1>
 
 <% if current_user.company %>
-<%= render 'upcoming_classes' %>
+<%= render 'users/upcoming_classes' %>
 ...
 
-<% else #customer %> 
-<%= render 'upcoming_subscriptions' %>
-<% end %> 
-
-
+<% else #customer %>
+<%= render 'users/upcoming_subscriptions' %>
+<% end %>
