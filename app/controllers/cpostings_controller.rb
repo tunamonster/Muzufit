@@ -8,6 +8,7 @@ class CpostingsController < ApplicationController
 		@spots_left = @cposting.spots_left
 		@subscriptions = @cposting.subscriptions	
 		@template = current_user.templates.find_by_content(@cposting.content) 
+		@cpostings = Cposting.where(content: @cposting.content) 
 	end
 
 	def index

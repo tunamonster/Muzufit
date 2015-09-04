@@ -24,8 +24,7 @@ slots filled: <%= cp.subscriptions.count.to_s + "/" + cp.spots.to_s %>
   <%= date %>
 
   <% cp.each do |c| %>
-    <div>
-      
+    <div>      
       <%= link_to c.title,c %> 
       <%= c.subscriptions.count %>/<%= c.spots %>
     </div>
