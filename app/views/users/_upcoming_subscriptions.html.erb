@@ -1,0 +1,12 @@
+<h4> Upcoming classes (make this shit a box) </h4>
+<div class = "upcoming-classes">
+<ul>
+<% if @subscriptions.any? %>
+	<% @subscriptions.take(3).each do |s| %>
+	<li><%= link_to s.post.title, s.post %></li> 
+	<% end %>
+<% else %> 
+	You haven't signed up for any classes yet!	
+<% end %>
+<ul>
+</div>

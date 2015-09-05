@@ -13,7 +13,7 @@ before_action :correct_user, only: [:edit, :update]
     if @user.company
     @cpostings = current_user.cpostings.where.not(starts_at: nil)
     else
-
+    @subscriptions = current_user.subscriptions  
     end
 	end
 	
