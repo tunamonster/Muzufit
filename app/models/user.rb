@@ -57,6 +57,17 @@ class User < ActiveRecord::Base
       Subscription.where(post_id: post.id,
                  subscriber_id: self.id).exists?
   end
+# Activates an account.
+def activate
+  update_attribute(:activated,    true)
+  update_attribute(:activated_at, Time.zone.now)
+end
+
+# Sends activation email.
+def send_activation_email
+  UserMailer.account_activation(self).deliver_now
+end
+
   private
     # Converts email to all lower-case.
     def downcase_email
