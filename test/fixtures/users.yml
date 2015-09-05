@@ -9,14 +9,19 @@ company:
   email: comp@nnn.yy
   password_digest: <%= User.digest('password') %>
   company: true
+  activated: true
+  activated_at: <%=Time.zone.now%>
 
 customer:
   name: Conscious Citizen
-  email: customer@okmail.com 
+  email: customer@okmail.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%=Time.zone.now%>
 
 customer2:
   name: Filler Filly
-  email: customer2@okmail.com 
+  email: customer2@okmail.com
   password_digest: <%= User.digest('password') %>
-
+  activated: true
+  activated_at: <%=Time.zone.now%>

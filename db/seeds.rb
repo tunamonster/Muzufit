@@ -14,7 +14,9 @@
 				email: email,
 				password: password,
 				password_confirmation: password,
-				company: true)
+				company: true,
+				activated: true,
+				activated_at: Time.zone.now)
 end
 
 40.times do |user|
@@ -24,7 +26,9 @@ end
 	User.create!(name: name,
 				email: email,
 				password: password,
-				password_confirmation: password)
+				password_confirmation: password,
+				activated: true,
+				activated_at: Time.zone.now)
 end
 
 
@@ -40,7 +44,7 @@ end
 					user_id: user_id,
 					spots: spots,
 					class_date: cdate,
-					class_time: ctime 
+					class_time: ctime
 					)
 	puts Cposting.last.starts_at
 end
@@ -66,4 +70,3 @@ User.create!(name:  "Example User",
              password_confirmation: "foobar",
              company: true
              )
-
