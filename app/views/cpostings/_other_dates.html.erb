@@ -1,0 +1,8 @@
+
+Other dates for this class
+<% @nucpostings.each do |c| %>
+<ul>
+	</li><%= link_to c.starts_at.to_time.strftime('%a %b %d %H:%M:%S'), c %> </li>
+<% end %>
+</ul>
+   

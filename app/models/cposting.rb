@@ -16,6 +16,7 @@ class Cposting < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
   validates :content, presence: true
   validates :user_id, presence: true
+  validates_uniqueness_of :content, :scope => :starts_at
   validates :spots, :numericality => { only_integer: true,
   									:greater_than_or_equal_to => 1,
   									:less_than_or_equal_to => 10}
@@ -47,7 +48,7 @@ def convert_to_datetime #convert the datepicker form in /new to datetime
 end
 
 def date_in_future
-  errors.add(:starts_at, " has to be in the future") unless !self.starts_at.nil? && self.starts_at > DateTime.now
+  errors.add(:starts_at, " has to be in the future") unless !self.starts_at.nil? && self.starts_at > DateTime.now 
 end
 
   private

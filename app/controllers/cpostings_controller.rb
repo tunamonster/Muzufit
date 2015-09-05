@@ -8,6 +8,8 @@ class CpostingsController < ApplicationController
 		@spots_left = @cposting.spots_left
 		@subscriptions = @cposting.subscriptions	
 		@template = current_user.templates.find_by_content(@cposting.content) 
+		@cpostings = Cposting.where(content: @cposting.content) 
+		@nucpostings = @cpostings.where.not(id: @cposting.id) #combine this + above in 1 var
 	end
 
 	def index
@@ -15,7 +17,7 @@ class CpostingsController < ApplicationController
 	end
 
 	def company_posts
-		@cpostings = Cposting.where(user_id: current_user.id)
+		@cpostings = current_user.cpostings 
 	end
 
 	def search

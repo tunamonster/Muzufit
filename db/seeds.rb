@@ -37,10 +37,16 @@ end
 	content = Faker::Lorem.sentence
 	user_id = spots+1
 	spots = spots+1
+	cdate = "#{7+spots}-09-2015"
+	ctime = "13:30"
 	Cposting.create!(title: title,
 					content: content,
 					user_id: user_id,
-					spots: spots)
+					spots: spots,
+					class_date: cdate,
+					class_time: ctime 
+					)
+	puts Cposting.last.starts_at
 end
 
 
@@ -64,6 +70,4 @@ User.create!(name:  "Example User",
              password_confirmation: "foobar",
              company: true
              )
-Cposting.create!(content: "NOT BOOKED FULL (yet)",
-				spots: 1,
-				user_id: 47) #example user
+

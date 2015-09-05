@@ -26,5 +26,10 @@
 
 <% if @cposting.subscriptions.any? && current_user == @cposting.user %>
 <%= render 'subscriber_list' %>
+<% end %>
 
+<% if @nucpostings.any?  %>
+<%= render 'other_dates' %>
+<% else %> 
+Request more classes from this studio 
 <% end %>

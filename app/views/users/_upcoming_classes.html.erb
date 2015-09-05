@@ -1,0 +1,29 @@
+
+<h4> upcoming classes </h4> 
+<div class = "upcoming-classes">
+<ul>
+<% 3.times do |i| #clean up the code inside of this abomination %>
+	<% if i == 0 %>
+	 <% c = @cpostings.first unless @cpostings.first.nil? %>
+    <% if !c.nil? %>
+      <li><%= link_to c.title, c %> <%= c.starts_at %> <%= c.subscriptions.count %>/<%= c.spots %>  </li>
+    <% else %> 
+      You haven't created any classes yet!
+    <% end %>
+
+	<% elsif i == 1 %>
+    <%  c = @cpostings.second unless @cpostings.second.nil? %>
+      <% if !c.nil? %>
+        <li><%= link_to c.title, c %> <%= c.starts_at %> <%= c.subscriptions.count %>/<%= c.spots %>  </li>
+      <% end %>
+
+	<% elsif i == 2 %> 
+    <%  c = @cpostings.third unless @cpostings.third.nil? %>
+      <% if !c.nil? %>
+        <li><%= link_to c.title, c %> <%= c.starts_at %> <%= c.subscriptions.count %>/<%= c.spots %>  </li>
+      <% end %>
+      
+ <% end %>     
+  </div>
+  <%= link_to "view more", my_postings_path  %> || <%= link_to "create new class", new_cposting_path %>
+<% end %>
