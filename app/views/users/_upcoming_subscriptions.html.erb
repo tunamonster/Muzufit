@@ -3,7 +3,7 @@
 <ul>
 <% if @subscriptions.any? %>
 	<% @subscriptions.take(3).each do |s| %>
-	<li><%= link_to s.post.title, s.post %></li> 
+	<li><%= link_to s.post.title, s.post %> <%= s.post.date %></li> 
 	<% end %>
 <% else %> 
 	You haven't signed up for any classes yet!	
