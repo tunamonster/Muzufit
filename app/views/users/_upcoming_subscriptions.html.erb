@@ -1,7 +1,7 @@
 <h4> Upcoming classes (make this shit a box) </h4>
 <div class = "upcoming-classes">
 <ul>
-<% if @subscriptions.any? %>
+<% if !@subscriptions.nil? %>
 	<% @subscriptions.take(3).each do |s| %>
 	<li><%= link_to s.post.title, s.post %> <%= s.post.date %></li> 
 	<% end %>
