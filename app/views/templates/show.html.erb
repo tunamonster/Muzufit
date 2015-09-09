@@ -1,6 +1,11 @@
-<li id="template-<%= @template.id %>"> 
+ <div class="row">
+ 
+      
 	<h1><%= @template.title %> </h1> 
-	<span class = "content"><%= @template.content %> </span>
+	  <div class="card-panel ">
+	<span class = "content"><%= simple_format(@template.content) %> </span>
 
 <%= image_tag @template.picture.url if @template.picture? %>
-</li>
+        </div>
+      </div>
+    </div>

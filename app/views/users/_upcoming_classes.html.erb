@@ -1,15 +1,40 @@
 
-<h4> upcoming classes </h4> 
-<div class = "upcoming-classes">
+		<div class = "card-panel hoverable" style="width: flex;">
+
+		<h4> upcoming classes </h4> 
+
 <ul>
-<% if !@cpostings.nil? %>  
+
+<% if @cpostings.count != 0 %>  
+       <table>
+        <thead>
+          <tr>
+              <th data-field="id">Title</th>
+              <th data-field="name">Date</th>
+              <th data-field="price">Subscribers</th>
+          </tr>
+        </thead>
+        <tbody>        	
   <% @cpostings.take(3).each do |c| %>  
-        <li><%= link_to c.title, c %> <%= c.starts_at %> <%= c.subscriptions.count %>/<%= c.spots %>  </li>     
-   <% end %>  
+          <tr>
+            <td><%= link_to c.title, c %></td>
+            <td><%= c.starts_at.strftime('%a %b %d %H:%M') %></td>
+            <td><%= c.subscriptions.count %>/<%= c.spots %> </td>
+          </tr>
+   			<% end %>  
+         </tbody>
+      </table>    
+  
 <% else %>
 You have no upcoming classes!    
+
   </ul>  
-  </div>
+
   <% end %>
-  <%= link_to "view more", my_postings_path  %> || <%= link_to "create new class", new_cposting_path %>
+  <%= link_to "view more", my_postings_path, :class => "btn-flat"  %> || <%= link_to "create new class", new_cposting_path, :class => "btn-flat" %>
+  </div>
+
+
+        
+
 

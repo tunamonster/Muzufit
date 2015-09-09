@@ -1,12 +1,35 @@
-<h1>
-<%= current_user.name %>
-<%= current_user.company ? "company" : "customer" %>
-</h1>
+      <div class="row">
+        <div class="col s12 ">
+          <div class="card">
+            <div class="card-image" style="height: flex;">
+              <img src="<%= image_url('cover.jpg')%>">
+              <span class="card-title">
+              	<h3><%= current_user.name %>
+			<%= current_user.company ? "company" : "customer" %></h3>
+			</span>
+            </div>
+            <div class="card-content">
+               	<p class="grey-text darken-3 ">
+ 		
+Purchase a suitable home for your quail. Due to their small size, quail can live in most sorts of housing including guinea pig hutches, rodent cages, chicken coops, and aviaries. There’s two ways to acquire a house, you either buy one or build one.
+It’s important to give quail no less than 1 square foot of floor space. A longer cage allows your quail room to roam but a smaller cage can cause them stress from close confinement.
+Make sure that the spacing between the wiring is at most 1/2 an inch, as quails can squeeze their head through anything larger. Owing to their tiny feet, they do not do well with wire floor grids, as they can fall and slip through, causing discomfort and possible injury<br>
+<br>
+Make sure the housing is the best it can be for your quail. Quail can be kept in any sort of housing but their home does need a few things to make it safe and suitable for your quail. These things include:
+The home must have easy access so that you can grab the birds when necessary, feed and provide water for the quail every day, and clean the cage with no troubles every week.
+ 	</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Facebook</a> <a href="#">Website</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
 <% if current_user.company %>
 <%= render 'users/upcoming_classes' %>
-...
 
+<%#= render 'users/description' %>
 <% else #customer %>
 <%= render 'users/upcoming_subscriptions' %>
 <% end %>

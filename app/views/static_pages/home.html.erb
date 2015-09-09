@@ -1,23 +1,103 @@
-<head>
-  <script>
-    (function($){
-      $(function(){
-        $('.parallax').parallax();
-        });
-      })
-    (jQuery);
-  </script>
-</head>
-
-<div class="parallax-container">
-  <div class="parallax"><img src="http://gumbofitness.com/wp-content/uploads/2014/11/header-photo1.jpg"></div>
-</div>
-<div style="text-align: center" class="section white">
-  <div class="row container">
-    <h2 class="header" style="text-align: center">MUZUFIT</h2>
-    <p class="grey-text text-darken-3 lighten-3" style="text-align: center">For you, it's just a strange combination of the words anti-nigga and fitness. For us, it changes the world. Ladies and Gentlemen, welcome to the future, welcome to Muzufit, welcome to diversity in fitness. Making the world a slimmer place.</p>
+ <div class="parallax-container">
+    <div class="parallax"><img class="responsive-img" src="<%= image_url('yoga.jpg')%>"></div>
   </div>
-</div>
-<div class="parallax-container">
-  <div class="parallax"><img src="http://2.bp.blogspot.com/-0BraEuUvacU/UuZ_yDYZBuI/AAAAAAAAA00/UOCag_N9edU/s1600/fitness.bmp"></div>
-</div>
+  <div class="section white">
+    <div class="row container">
+      <h2 class="header center-align">Flex 6-4</h2>
+      <p class="grey-text text-darken-3 lighten-3 center-align flow-text">
+        Van Aikido tot Zumba. <br>
+        Krijg met één abonnement toegang tot een geweldig lokaal netwerk van sport- en bewegingsactiviteiten.<br>
+        Vanaf €39 per maand. Op ieder moment opzegbaar.
+         <div class="col s4">
+           <p class="right-align flow-text">Kom op de wachtlijst:</p>
+         </div>
+         <div class="col s4">
+         <form>
+         <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+        </form>
+        </div>
+        <div class="col s4">
+          <button class="btn waves-effect waves-light" type="submit" name="action" style="margin-top: 20px;">Flex!</button>
+        </div>
+      </p>
+    </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img class="responsive-img" src="<%= image_url('runners.jpg')%>"></div>
+  </div>
+  <div class="section white">
+     <div class="row container">
+      <div class="col s4">
+        <p class="center-align">icon here</p>
+        <p class="center-align flow-text" >Lorem</p>
+      </div>
+      <div class="col s4">
+        <p class="center-align">icon here</p>
+        <p class="center-align flow-text">ipsum</p>
+      </div>
+      <div class="col s4">
+        <p class="center-align">icon here</p>
+        <p class="center-align flow-text">dolorem</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+      </div>
+    </div>
+  </div>
+  
+ <div class="parallax-container">
+    <div class="parallax"><img class="responsive-img" src="<%= image_url('runners.jpg')%>"></div>
+  </div>
+
+  <div class="section white">
+    <div class="row container">
+      <div class="col s3">
+        <h5 class="center-align">FAQ #1</h5>
+        <p class="center-align flow-text" >Lorem</p>
+      </div>
+      <div class="col s3">
+        <h5 class="center-align">FAQ #2</h5>
+        <p class="center-align flow-text">ipsum</p>
+      </div>
+      <div class="col s3">
+        <h5 class="center-align">FAQ #3</h5>
+        <p class="center-align flow-text">dolorem</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+      </div>
+      <div class="col s3">
+        <h5 class="center-align">FAQ #4</h5>
+        <p class="center-align flow-text">kendrick</p>
+      </div>
+    </div>
+  </div>
+
+  
+  
+<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Company?</h5>
+                <p class="grey-text text-lighten-4">Are you a company and wish to offer classes? <br>
+                Contact us here: <a class="black-text text-lighten-1" href="mailto:someone@example.com?Subject=Hello%20again" target="_top">info@flex6-4.io</a>
+                </p>
+              </div>
+              <div class="col l4 offset-12 s12">
+                <h5 class="white-text">More Questions?</h5>
+                <p class="grey-text text-lighten-4">Get in contact with us here: <a class="black-text text-lighten-1" href="mailto:someone@example.com?Subject=Hello%20again" target="_top">questions@flex6-4.io</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2015 Flex 6-4 | +31 640938553| Meent 78D 3011JN Rotterdam
+            </div>
+          </div>
+</footer>
+
+<script>    
+    $(document).ready(function(){
+    $('.parallax').parallax();
+    });
+</script>    

@@ -37,7 +37,7 @@ class CpostingsController < ApplicationController #consider replacing all @cpost
 			flash[:success] = "Posting created!"
 			redirect_to current_user
 		else
-			flash.now[:error] = "error error error"
+			
 			render 'new'
 		end
 
@@ -62,7 +62,7 @@ class CpostingsController < ApplicationController #consider replacing all @cpost
 		@cposting = Cposting.find(params[:id]).destroy
 		raise "cannot delete less than 2 days in advance" unless @cposting.starts_at - DateTime.now > 172800
 		flash[:success] = "#{@cposting.title} deleted"
-		render 'user'
+		render 'cpostings'
 	end
 
 private

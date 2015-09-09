@@ -5,7 +5,7 @@
 */
 
 @import "materialize/components/color";
-$primary-color: color("blue-grey", "lighten-1") !default;
+$primary-color: color("blue", "lighten-1") !default;
 @import 'materialize';
 
 body {
@@ -17,3 +17,7 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+.upcoming-classes card-panel {
+	display: flex;
+}

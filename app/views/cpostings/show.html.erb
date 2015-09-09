@@ -1,26 +1,16 @@
 
-<li id = "cposting-<%= @cposting.id %>">
 
 <h1><%= @cposting.title %></h1>
 <h4><%= link_to @cposting.user.name, @cposting.user %></h4>
 <h6><%= @cposting.starts_at %></h6>
 
-<% if current_user == @cposting.user %>
-	<%= link_to 'Edit', edit_cposting_path(@cposting) %> || 
-		<% if two_days(@cposting) %>
 
-			<%= link_to 'Destroy', @cposting, method: :delete,
-	                                     data: { confirm: 'Are you sure you want to delete this posting?' } %>
-		<% else %>
-			Too late to delete this posting. Please contact us <br>
-		<% end %>
-<% end %>
 <%= render 'images' %>
 
-<% unless @cposting.full_class? %>
+<% if !@cposting.full_class? && !current_user.company %>
 <span class = "spots"><%= pluralize(@spots_left, 'spot') %> left to go </span>
 <% end %>
-<span class = "content"><%= @cposting.content %> </span>
+<span class = "content"><%= simple_format(@cposting.content) %> </span>
 
 <% if !current_user.company %>
 	<% if @cposting.full_class? && !current_user.subscribed?(@cposting) %>
@@ -30,14 +20,24 @@
 	<% end %>
 <% end %>
 
-</li>
 
 <% if @cposting.subscriptions.any? && current_user == @cposting.user %>
 <%= render 'subscriber_list' %>
 <% end %>
-
+<br>
 <% if @nucpostings.any?  %>
 <%= render 'other_dates' %>
 <% else %> 
 Request more classes from this studio 
+<% end %>
+<br>
+<% if current_user == @cposting.user %>
+	<%= link_to 'Edit', edit_cposting_path(@cposting) %> || 
+		<% if two_days(@cposting) %>
+
+			<%= link_to 'Destroy', @cposting, method: :delete,
+	                                     data: { confirm: 'Are you sure you want to delete this posting?' } %>
+		<% else %>
+			Too late to delete this posting. Please contact us <br>
+		<% end %>
 <% end %>
