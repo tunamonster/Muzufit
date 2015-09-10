@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
 	def home
 	@user=User.new #enabling signup and login form on static pages
     if !current_user.nil?
-        render 'users/show'
+        redirect_to current_user
     end
 	end
 
