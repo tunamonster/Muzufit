@@ -2,7 +2,7 @@
 <h4> upcoming classes </h4> 
 <div class = "upcoming-classes">
 <ul>
-<% if @cpostings.any? %>  
+<% if !@cpostings.nil? %>  
   <% @cpostings.take(3).each do |c| %>  
         <li><%= link_to c.title, c %> <%= c.starts_at %> <%= c.subscriptions.count %>/<%= c.spots %>  </li>     
    <% end %>  
@@ -10,5 +10,6 @@
 You have no upcoming classes!    
   </ul>  
   </div>
+  <% end %>
   <%= link_to "view more", my_postings_path  %> || <%= link_to "create new class", new_cposting_path %>
-<% end %>
+

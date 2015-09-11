@@ -1,6 +1,5 @@
-class CpostingsController < ApplicationController
+class CpostingsController < ApplicationController #consider replacing all @cpostings with single variable for DRY code like current_user
 	before_action :company_user, only: [:create, :new ]
-
 	before_action :correct_user, only: [:destroy, :edit, :update, :my_postings]
 
 	def show
@@ -9,7 +8,7 @@ class CpostingsController < ApplicationController
 		@subscriptions = @cposting.subscriptions	
 		@template = current_user.templates.find_by_content(@cposting.content) 
 		@cpostings = Cposting.where(content: @cposting.content) 
-		@nucpostings = @cpostings.where.not(id: @cposting.id) #combine this + above in 1 var
+		@nucpostings = @cpostings.where.not(id: @cposting.id) #combine this + above in 1 var + only show future cpostings
 	end
 
 	def index
@@ -45,7 +44,25 @@ class CpostingsController < ApplicationController
 	end
 
 	def edit
-		#@cposting = Cposting.find_by(params[:id])
+		@cposting = Cposting.find(params[:id])
+	end
+
+	def update
+	@cposting = Cposting.find(params[:id])
+		if @cposting.update_attributes(cposting_params)
+			flash[:success] = "#{@cposting.title} updated!"
+			render 'my_postings'
+		else
+			flash[:error] = "Oops! Something went wrong"
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@cposting = Cposting.find(params[:id]).destroy
+		raise "cannot delete less than 2 days in advance" unless @cposting.starts_at - DateTime.now > 172800
+		flash[:success] = "#{@cposting.title} deleted"
+		render 'user'
 	end
 
 private
@@ -61,4 +78,5 @@ private
 	def cposting_params
 		params.require(:cposting).permit(:content, :spots, :class_date, :class_time, :title, :picture)
 	end
+
 end

@@ -1,7 +1,8 @@
 class Template < ActiveRecord::Base
 	belongs_to :user
 
-	validates :content, presence: true
+	validates :content, presence: true,
+				uniqueness: {scope: :title} #prevent spam clicking for multiple entries
 	validates :title, presence: true
 	mount_uploader :picture, PictureUploader
 	validate :picture_size
