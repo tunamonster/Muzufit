@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   get 'my_postings' => 'cpostings#company_posts'
   get 'search' => 'cpostings#search'
   resources :templates
-  resources :users, only: [:show, :new, :create, :destroy]
+  resources :users do 
+    member do
+    patch :change_desc 
+    end
+  end
   resources :cpostings
   resources :subscriptions
   # The priority is based upon order of creation: first created -> highest priority.

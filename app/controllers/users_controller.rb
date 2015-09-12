@@ -29,6 +29,17 @@ before_action :correct_user, only: [:edit, :update]
     end
   end
 
+  def change_desc
+    @user = current_user
+    @cpostings = current_user.cpostings.where.not(starts_at: nil)
+    if @user.update_attribute(:description, params[:user][:description])
+      flash[:success] = "Description updated!"
+    else
+      flash[:error] = "error"
+    end
+    render 'show'
+  end
+
   private
 
     def user_params
@@ -36,7 +47,9 @@ before_action :correct_user, only: [:edit, :update]
                                    :password_confirmation)
     end
 
-
+    def desc_param
+      params.require(:user).permit(:description)
+    end
 
 
     def correct_user

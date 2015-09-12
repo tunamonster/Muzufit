@@ -10,7 +10,16 @@
             </div>
             <div class="card-content">
                	<p class="grey-text darken-3 ">
- 		
+      <% if @user.description == "-" || @user.description.nil? # - default, sometimes bugs to nil%>
+          <%= form_for @user, url: [:change_desc_user], method: :patch do |f| %>
+            <%= render 'shared/error_messages', :object => f.object %>
+            <%= f.label :description %>
+            <%= f.text_field :description %>
+            <%= f.submit 'Submit', :class => "btn" %>
+          <% end %>
+        <% else %>
+        <p> <%= simple_format(@user.description) %> </p>
+      <% end %>
 Purchase a suitable home for your quail. Due to their small size, quail can live in most sorts of housing including guinea pig hutches, rodent cages, chicken coops, and aviaries. There’s two ways to acquire a house, you either buy one or build one.
 It’s important to give quail no less than 1 square foot of floor space. A longer cage allows your quail room to roam but a smaller cage can cause them stress from close confinement.
 Make sure that the spacing between the wiring is at most 1/2 an inch, as quails can squeeze their head through anything larger. Owing to their tiny feet, they do not do well with wire floor grids, as they can fall and slip through, causing discomfort and possible injury<br>
