@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
 before_action :logged_in_user, only: [:show, :edit, :update]
 before_action :correct_user, only: [:edit, :update]
 	def new 
@@ -40,11 +41,14 @@ before_action :correct_user, only: [:edit, :update]
     render 'show'
   end
 
+  def update
+  end
+
   private
 
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :description)
     end
 
     def desc_param

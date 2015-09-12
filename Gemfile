@@ -19,7 +19,6 @@ gem 'carrierwave',             '0.10.0'
 gem 'mini_magick',             '3.8.0'
 gem 'fog',                     '1.23.0'
 
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
@@ -41,6 +40,9 @@ gem 'will_paginate'
  gem 'pickadate-rails'
  #Use SimpleCalendar to display events
  gem 'simple_calendar', '~> 1.1.0'
+
+
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
