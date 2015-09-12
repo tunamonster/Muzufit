@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150903153330) do
     t.string   "password_digest"
     t.boolean  "company",         default: false, null: false
     t.string   "remember_digest"
+    t.text     "description",      default: "-"
   end
 
   add_foreign_key "cpostings", "users"

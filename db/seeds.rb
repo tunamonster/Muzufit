@@ -33,7 +33,7 @@ end
 	content = Faker::Lorem.sentence
 	user_id = spots+1
 	spots = spots+1
-	cdate = "#{7+spots}-09-2015"
+	cdate = Date.tomorrow + 1
 	ctime = "13:30"
 	Cposting.create!(title: title,
 					content: content,
