@@ -14,12 +14,14 @@
          </div>
          <div class="col s4">
           <%= form_for(@email) do |f| %>
+          <div class="input-field col s12">
           <%= f.label :email %>
-          <%= f.text_field :email %>
-          <%= f.submit 'Flex!', class: "btn btn-primary" %>
+          <%= f.text_field :email, class: "validate" %>
+        </div>
+        </div>
+         <div class="col s4">
+          <%= f.submit 'Flex!', class: "btn btn-primary left", style: "margin-top: 20px" %>
           <% end %>
-
-
         </div>
     </div>
   </div>
