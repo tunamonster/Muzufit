@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
     if !current_user.nil?
         redirect_to current_user
     end
+    @email = Signup.new #landing page emails 
 	end
 
    

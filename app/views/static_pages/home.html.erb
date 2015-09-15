@@ -13,20 +13,18 @@
            <p class="right-align flow-text">Begin met verkennen:</p>
          </div>
          <div class="col s4">
-         <form>
-         <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-        </form>
-        </div>
-        <div class="col s4">
-          <button class="btn waves-effect waves-light left" type="submit" name="action" style="margin-top: 20px">Flex!</button>
+          <%= form_for(@email) do |f| %>
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+          <%= f.submit 'Flex!', class: "btn btn-primary" %>
+          <% end %>
+
+
         </div>
     </div>
   </div>
   <div class="parallax-container">
-    <div class="parallax"><img class="responsive-img" src="<%= image_url('class.jpg')%>"></div>
+    <div class="parallax"><img class="responsive-img" src="<%= image_url('runners.jpg')%>"></div>
   </div>
   <div class="section white center">
      <div class="row container">
@@ -47,7 +45,7 @@
   </div>
 
  <div class="parallax-container">
-    <div class="parallax"><img class="responsive-img" src="<%= image_url('runners.jpg')%>"></div>
+    <div class="parallax"><img class="responsive-img" src="<%= image_url('class.jpg')%>"></div>
   </div>
 
   <div class="section white center">

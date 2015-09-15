@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'faq' => 'static_pages#faq'  
   get 'my_postings' => 'cpostings#company_posts'
   get 'search' => 'cpostings#search'
+  get 'signups' => 'static_pages#home'
+  post 'signups' => 'signups#create'
   resources :templates
   resources :users do 
     member do
