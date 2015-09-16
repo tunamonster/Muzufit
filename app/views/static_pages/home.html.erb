@@ -7,39 +7,42 @@
       <p class="grey-text text-darken-3 lighten-3 center-align flow-text">
         Van Aikido tot Zumba. <br>
         Krijg met één abonnement toegang tot een geweldig lokaal netwerk van sport- en bewegingsactiviteiten.<br>
-        
+
       </p>
          <div class="col s4">
            <p class="right-align flow-text">Begin met verkennen:</p>
          </div>
          <div class="col s4">
           <%= form_for(@email) do |f| %>
+          <div class="input-field col s12">
           <%= f.label :email %>
-          <%= f.text_field :email %>
-          <%= f.submit 'Flex!', class: "btn btn-primary" %>
+          <%= f.text_field :email, class: "validate" %>
+        </div>
+        </div>
+         <div class="col s4">
+          <%= f.submit 'Flex!', class: "btn btn-primary left", style: "margin-top: 20px" %>
           <% end %>
-
-
         </div>
     </div>
   </div>
   <div class="parallax-container">
     <div class="parallax"><img class="responsive-img" src="<%= image_url('runners.jpg')%>"></div>
   </div>
+  <br><br><br>
   <div class="section white center">
      <div class="row container">
       <div class="col s4">
-        <p class="center-align">icon here</p>
+        <i class="material-icons">done</i>
         <p class="center-align flow-text">Onafhankelijke studio's.</p>
       </div>
       <div class="col s4">
-        <p class="center-align">icon here</p>
+        <i class="material-icons">done</i>
         <p class="center-align flow-text">Op ieder moment opzegbaar. </p>
       </div>
       <div class="col s4">
-        <p class="center-align">icon here</p>
+        <i class="material-icons">done</i>
         <p class="center-align flow-text">Vanaf €39 per maand.</p>
-        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br>
       </div>
     </div>
   </div>
